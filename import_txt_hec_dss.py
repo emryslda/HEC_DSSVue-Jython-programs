@@ -25,7 +25,7 @@ try :
       tsc = TimeSeriesContainer()
       #CHANGE THE 15MIN INTERVAL FOR YOUR NEEDS
       #SETUP PATHNAME
-      tsc.fullName =  "/BASIN/"+staz_name+"/RAIN//15MIN/OBSERVATION/"
+      tsc.fullName =  "/BASIN/"+staz_name+"/PRECIP-CUM//15MIN/OBSERVATION/"
       station_file=open(file,'r')
       #JUMP THE HEADERS
       header1 = station_file.readline()
@@ -56,7 +56,7 @@ try :
       tsc.values = rain
       tsc.numberValues = len(rain)
       tsc.units = "mm"
-      tsc.type = "PRECIPITATION"
+      tsc.type = "INST-CUM"
       myDss.put(tsc)#HERE IT WILL UPDATE THE DSS FILE
     
   except Exception, e :
