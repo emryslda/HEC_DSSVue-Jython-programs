@@ -11,17 +11,21 @@ import os
 
 try : 
   try :
-    myDss = HecDss.open(PATH_TO_DSS") #IF IT DOESN'T EXIST IT CREATES IT
+    #IF IT DOES NOT EXIST IT CREATES IT
+    myDss = HecDss.open(PATH_TO_DSS") 
     path=PATH_TO_TXTFILES
     list_files=os.listdir(path)
     for line in list_files: #LOOP OVER THE FILES
       file=path+'/'+line; #READ A FILE
       staz_name= ''.join([i for i in line if not i.isdigit()])
-      staz_name=staz_name.replace('.txt','') #DELETE SOME ISSUES
+      #DELETE SOME ISSUES
+      staz_name=staz_name.replace('.txt','')
       staz_name=staz_name.replace('_','')
+      #CREATE TIMESERIES
       tsc = TimeSeriesContainer()
       #CHANGE THE 15MIN INTERVAL FOR YOUR NEEDS
-      tsc.fullName =  "/BASIN/"+staz_name+"/RAIN//15MIN/OBSERVATION/" #SETUP PATHNAME
+      #SETUP PATHNAME
+      tsc.fullName =  "/BASIN/"+staz_name+"/RAIN//15MIN/OBSERVATION/"
       station_file=open(file,'r')
       #JUMP THE HEADERS
       header1 = station_file.readline()
@@ -41,7 +45,8 @@ try :
          precipitation=float(columns[3])
          rain.append(precipitation)    
       station_file.close()
-      tsc.interval = 15  #SETUP THE INTERVAL
+      #SETUP THE INTERVAL                  
+      tsc.interval = 15 
       times = []
       start = HecTime(data[0],ora[0])
       for value in rain :
