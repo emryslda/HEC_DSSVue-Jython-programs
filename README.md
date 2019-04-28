@@ -1,5 +1,5 @@
 # HEC_DSS_import scripts
-# This is a jython repository for storing \t-separated .txt files in HEC_DSSVue (the program works in HEC_DSSVue script editor). 
+# This is a jython repository for manipulating \t-separated .txt files in HEC_DSSVue. 
 
 
 # import_txt_hec_dss.py
