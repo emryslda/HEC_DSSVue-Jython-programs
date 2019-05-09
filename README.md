@@ -29,4 +29,4 @@ Q(cms)
 
 # delete_all_records.py
 
-It delete all record inside a specific .dss file
+It clears all record inside a specific .dss file
